@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Types of buttons</title>
+</head>
+
+<body>
+  <button id='onclick'>onclick</button>
+  <button id='onfocus'>onfocus</button>
+  <button id='onblur'>onblur</button>
+  <button id='ondblclick'>ondblclick</button>
+  <button id='onmouseover'>onmouseover</button>
+  <button id='onmouseout'>onmouseout</button>
+</body>
+
+<script>
+  html = document.querySelector('html');
+
+  document.getElementById('onclick').onclick = changeBackgroundColor;
+  document.getElementById('onfocus').onfocus = changeBackgroundColor;
+  document.getElementById('onblur').onblur = changeBackgroundColor;
+  document.getElementById('ondblclick').ondblclick = changeBackgroundColor;
+  document.getElementById('onmouseover').onmouseover = changeBackgroundColor;
+  document.getElementById('onmouseout').onmouseout = changeBackgroundColor;
+
+
+  function changeBackgroundColor() {
+    html.style.backgroundColor = `rgb(
+        ${255 * Math.random()},
+        ${255 * Math.random()},
+        ${255 * Math.random()})`;
+  }
+</script>
+
+</html>

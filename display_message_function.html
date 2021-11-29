@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Display message user function</title>
+</head>
+
+<body>
+  <h1>Following button display an alert like message using an user function</h1>
+  <button id='buttonDisplay'>Display message</button>
+  <div></div>
+</body>
+
+<script>
+  var button = document.getElementById('buttonDisplay');
+
+  button.onclick = displayMessage;
+
+  function displayMessage() {
+    var html = document.querySelector('html');
+
+    var div = document.createElement('div');
+    div.setAttribute('class', 'msgBox');
+    html.appendChild(div);
+
+    var msg = document.createElement('p');
+    msg.textContent = 'User created message box';
+    div.appendChild(msg);
+
+    var closeButton = document.createElement('button');
+    closeButton.textContent = 'x';
+    div.appendChild(closeButton);
+
+    closeButton.onclick = function () {
+      div.parentNode.removeChild(div);
+    }
+  }
+
+</script>
+
+</html>

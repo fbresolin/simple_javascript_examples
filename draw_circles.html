@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Draw circles</title>
+</head>
+
+<body>
+  <button id='buttonGen'>Generate circles</button>
+  <button id='buttonErase'>Erase circles</button>
+</body>
+
+<script>
+  var html = document.querySelector('html');
+  var buttonGen = document.getElementById('buttonGen');
+  var buttonErase = document.getElementById('buttonErase');
+
+  buttonGen.onclick = generateCircles;
+
+  function changeBackgroundColor() {
+    canvas = document.querySelector('canvas');
+    canvas.style.backgroundColor = `rgb(
+        ${255 * Math.random()},
+        ${255 * Math.random()},
+        ${255 * Math.random()})`;
+  }
+
+  function generateCircles() {
+    canvas = document.querySelector('canvas');
+    if (canvas) {
+      removeCircles()
+    }
+    var canvas = document.createElement('canvas');
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    html.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    for (i = 0; i < 100; i++) {
+      ctx.strokeStyle = `rgb(
+        ${255 * Math.random()},
+        ${255 * Math.random()},
+        ${255 * Math.random()})`;
+      ctx.beginPath();
+      ctx.arc(width * Math.random(), height * Math.random(), 20 * Math.random(), 0, 2 * Math.PI);
+      ctx.stroke();
+    }
+    globalThis.timer = setInterval(changeBackgroundColor, 500);
+  }
+
+  buttonErase.onclick = removeCircles
+
+  function removeCircles() {
+    canvas = document.querySelector('canvas');
+    if (canvas) {
+      clearInterval(globalThis.timer);
+      html.removeChild(canvas);
+    }
+  }
+
+</script>
+
+</html>

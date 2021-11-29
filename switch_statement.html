@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Teste</title>
+  <style>
+    div {
+      padding: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>This is my cute website</h1>
+
+  <div>
+    <label for='siteColor'>Choose site color</label>
+    <select id='siteColor'>
+      <option value='white'>White</option>
+      <option value='black'>Black</option>
+      <option value='gray'>Gray</option>
+      <option value='violet'>Violet</option>
+    </select>
+  </div>
+
+  <div>
+    <label for='weather'>Type of weather:</label>
+    <select id='weather'>
+      <option value=''>Make an option</option>
+      <option value='snowy'>Snowy</option>
+      <option value='sunny'>Sunny</option>
+      <option value='cloudy'>Cloudy</option>
+      <option value='windy'>Windy</option>
+    </select>
+  </div>
+
+  <p id='paragraph'></p>
+</body>
+
+<script>
+  var paragraph = document.querySelector('p');
+  var select = document.getElementById('weather');
+  var siteColor = document.getElementById('siteColor');
+  var html = document.querySelector('html')
+
+  select.addEventListener('change', function () {
+    var choice = select.value;
+
+    switch (choice) {
+      case 'snowy':
+        paragraph.textContent = 'Put a coat NOW!';
+        break;
+
+      case 'sunny':
+        paragraph.textContent = 'Go outside, but do not get burned...';
+        break;
+
+      case 'cloudy':
+        paragraph.textContent = 'Enjoy the shade...';
+        break;
+
+      case 'windy':
+        paragraph.textContent = 'Put a coat, but a light one.';
+        break;
+
+      default:
+        paragraph.textContent = '';
+        break;
+    }
+  })
+
+  siteColor.addEventListener('change', function () {
+    choice = siteColor.value;
+
+    switch (choice) {
+      case 'white':
+        html.style.backgroundColor = 'white';
+        html.style.color = 'black';
+        break;
+      case 'black':
+        html.style.backgroundColor = 'black';
+        html.style.color = 'white';
+        break;
+      case 'gray':
+        html.style.backgroundColor = 'gray';
+        html.style.color = 'white';
+        break;
+      case 'violet':
+        html.style.backgroundColor = 'violet';
+        html.style.color = 'white';
+        break;
+      default:
+        html.style.backgroundColor = 'white';
+        html.style.color = 'black';
+        break;
+    }
+  })
+
+</script>
+
+</html>
