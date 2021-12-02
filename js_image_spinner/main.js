@@ -1,8 +1,8 @@
 const spinner = document.querySelector('div')
 
 let startTime = null
-let rAF
 let image = new Image()
+let rAF
 
 image.src = 'image/aa.png'
 spinner.append(image)
@@ -26,6 +26,7 @@ function draw(timestamp) {
   spinner.style.transform = `rotate(${rotateCount}deg)`
 
   rAF = requestAnimationFrame(draw)
+  return timestamp
 }
 
 function cancelDraw() {
